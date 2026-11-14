@@ -1,0 +1,29 @@
+@theme {
+  --font-sans: "Inter", "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  --color-canvas: #101210;
+  --color-surface: #171a17;
+  --color-ink: #f0f2ec;
+  --color-muted: #a6ada1;
+  --color-subtle: #858c80;
+  --color-accent: #c5ef68;
+  --color-accent-strong: #d5f995;
+  --color-accent-soft: #29351b;
+  --color-line: #2a3029;
+  --radius-card: 1rem;
+  --radius-pill: 999px;
+  --shadow-card: 0 24px 70px rgb(0 0 0 / 30%);
+  --spacing-page: clamp(1.25rem, 6vw, 6.5rem);
+  --text-body: 1rem;
+}
+
+:root {
+  color-scheme: dark;
+  --font-display: var(--font-sans);
+  --space-section: clamp(5rem, 10vw, 9rem);
+  --content-width: 78rem;
+  --header-height: 5rem;
+}
+
+.page-container { width: min(100% - 2 * var(--spacing-page), var(--content-width)); margin-inline: auto; }
+.text-accent { color: var(--color-accent); }
+.text-subtle { color: var(--color-subtle); }

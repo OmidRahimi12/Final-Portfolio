@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#101210" />
+    <meta name="theme-color" content="#111820" />
+    <script>
+      const savedTheme = localStorage.getItem('portfolio-theme')
+      document.documentElement.dataset.theme = savedTheme === 'light' ? 'light' : 'dark'
+    </script>
     <meta name="description" content="A software developer portfolio featuring a profile, skills, selected projects, experience, and contact details." />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Software Developer Portfolio" />

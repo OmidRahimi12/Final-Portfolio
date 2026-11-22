@@ -11,9 +11,9 @@ export function ProfilePlaceholder() {
         loading="eager"
         fetchPriority="high"
         fallback={(
-          <div className="profile-placeholder" role="img" aria-label="Profile photo placeholder">
+          <div className="profile-placeholder" role="img" aria-label="Profile portrait unavailable">
             <span className="profile-placeholder__initials" aria-hidden="true">OR</span>
-            <span className="profile-placeholder__label" aria-hidden="true">Your photo here</span>
+            <span className="profile-placeholder__label" aria-hidden="true">Portrait unavailable</span>
           </div>
         )}
       />

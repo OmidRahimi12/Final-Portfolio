@@ -17,7 +17,7 @@ export function Footer() {
           <p className="footer-note">Software developer portfolio.</p>
         </div>
         <div className="footer-links">
-          {validSocials.length > 0 ? <SocialLinks links={validSocials} /> : <p className="text-subtle">Your social links will appear here.</p>}
+          {validSocials.length > 0 && <SocialLinks links={validSocials} />}
           <a className="back-to-top" href="#home">Back to top <ArrowUp size={15} aria-hidden="true" /></a>
         </div>
       </PageContainer>

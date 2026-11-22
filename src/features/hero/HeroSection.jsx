@@ -41,7 +41,8 @@ export function HeroSection() {
       <PageContainer className="hero-layout">
         <Reveal className="hero-copy">
           <p className="eyebrow"><span className="eyebrow-line" /> {personal.role} <span className="eyebrow-separator">/</span> Portfolio</p>
-          <h1 id="hero-title">{personal.headline}{personal.headlineAccent && <> <span>{personal.headlineAccent}</span></>}</h1>
+          <h1 id="hero-title">{personal.name}</h1>
+          <p className="hero-subtitle">{personal.headline}{personal.headlineAccent && <> <span>{personal.headlineAccent}</span></>}</p>
           {personal.introduction && <p className="hero-intro">{personal.introduction}</p>}
           <div className="hero-actions">
             <Button href="#projects" size="lg">Explore selected work <ArrowUpRight size={17} aria-hidden="true" /></Button>

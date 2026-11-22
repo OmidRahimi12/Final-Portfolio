@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { ArrowUpRight, Menu, X } from 'lucide-react'
+import { ArrowUpRight, Menu, Moon, Sun, X } from 'lucide-react'
 import { PageContainer } from './PageContainer.jsx'
 import { BrandLink } from './BrandLink.jsx'
 import { Button } from '../ui/Button.jsx'
+import { certifications } from '../../data/certifications.js'
 
 const links = [
   { label: 'About', href: '#about' },
@@ -10,19 +11,27 @@ const links = [
   { label: 'Projects', href: '#projects' },
   { label: 'Experience', href: '#experience' },
   { label: 'Education', href: '#education' },
-  { label: 'Certifications', href: '#certifications' },
+  ...(certifications.length ? [{ label: 'Certifications', href: '#certifications' }] : []),
   { label: 'Contact', href: '#contact' },
 ]
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
+  const [theme, setTheme] = useState(() => document.documentElement.dataset.theme === 'light' ? 'light' : 'dark')
   const menuToggleRef = useRef(null)
 
   const closeMenu = useCallback(() => setOpen(false), [])
+  const toggleTheme = useCallback(() => setTheme((current) => current === 'dark' ? 'light' : 'dark'), [])
   const handleNavigationClick = useCallback(() => {
     if (open) menuToggleRef.current?.focus()
     closeMenu()
   }, [closeMenu, open])
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    window.localStorage.setItem('portfolio-theme', theme)
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'light' ? '#f6f8f6' : '#111820')
+  }, [theme])
 
   useEffect(() => {
     if (!open) return undefined
@@ -55,6 +64,15 @@ export function Navbar() {
           {links.map((link) => (
             <a key={link.href} className="nav-link" href={link.href} onClick={handleNavigationClick}>{link.label}</a>
           ))}
+          <button
+            className="theme-toggle"
+            type="button"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          >
+            {theme === 'dark' ? <Sun size={18} aria-hidden="true" /> : <Moon size={18} aria-hidden="true" />}
+          </button>
           <Button href="#contact" className="nav-contact" size="sm" onClick={handleNavigationClick}>
             Let&apos;s talk <ArrowUpRight size={15} aria-hidden="true" />
           </Button>

@@ -1,6 +1,7 @@
 import { ArrowUpRight, Mail, MapPin } from 'lucide-react'
 import { personal } from '../../data/personal.js'
 import { socials } from '../../data/socials.js'
+import { certifications } from '../../data/certifications.js'
 import { Section } from '../../components/layout/Section.jsx'
 import { Button } from '../../components/ui/Button.jsx'
 import { SocialLinks } from '../../components/ui/SocialLinks.jsx'
@@ -34,7 +35,7 @@ export function ContactSection() {
           {locationReady && <div className="contact-detail"><span className="contact-detail__icon"><MapPin size={17} aria-hidden="true" /></span><div><small>Based in</small><span>{personal.location}</span></div></div>}
         </div>}
       </Reveal>
-      <div className="section-marker" aria-hidden="true"><span>08</span><span className="marker-line" /><span>CONTACT</span></div>
+      <div className="section-marker" aria-hidden="true"><span>{certifications.length ? '08' : '07'}</span><span className="marker-line" /><span>CONTACT</span></div>
     </Section>
   )
 }

@@ -1,4 +1,4 @@
-import { ArrowUpRight, MapPin, Sparkles } from 'lucide-react'
+import { ArrowUpRight, MapPin } from 'lucide-react'
 import { personal } from '../../data/personal.js'
 import { Section } from '../../components/layout/Section.jsx'
 import { SectionHeading } from '../../components/ui/SectionHeading.jsx'
@@ -16,7 +16,6 @@ export function AboutSection() {
           {personal.about?.length ? personal.about.map((paragraph) => <p key={paragraph}>{paragraph}</p>) : <PlaceholderState>Your introduction will appear here.</PlaceholderState>}
           <div className="about-meta">
             <span><MapPin size={15} aria-hidden="true" /> {personal.location}</span>
-            <span><Sparkles size={15} aria-hidden="true" /> Add a collaboration preference</span>
           </div>
           <a className="text-link" href="#contact">More about working together <ArrowUpRight size={16} aria-hidden="true" /></a>
         </Reveal>
